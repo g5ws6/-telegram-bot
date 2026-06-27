@@ -10,7 +10,7 @@ def ask_ai(message):
     }
 
     data = {
-      "model": "openai/gpt-oss-20b:free"
+      "model": "meta-llama/llama-3.3-8b-instruct:free"
         "messages": [
             {
                 "role": "user",
