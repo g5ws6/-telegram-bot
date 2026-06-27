@@ -8,8 +8,7 @@ def ask_ai(message):
         "Authorization": f"Bearer {os.getenv('AI_API_KEY')}",
         "Content-Type": "application/json",
     }
-
-    data = {
+data = {
       "model": "meta-llama/llama-3.3-8b-instruct:free"
         "messages": [
             {
@@ -18,6 +17,7 @@ def ask_ai(message):
             }
         ]
     }
+    
 
     response = requests.post(url, headers=headers, json=data)
 
