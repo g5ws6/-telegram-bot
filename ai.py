@@ -1,10 +1,11 @@
+import os
 import requests
 
 def ask_ai(message):
     url = "https://openrouter.ai/api/v1/chat/completions"
 
     headers = {
-        "Authorization": "Bearer YOUR_API_KEY",
+        "Authorization": f"Bearer {os.getenv('AI_API_KEY')}",
         "Content-Type": "application/json",
     }
 
@@ -23,4 +24,4 @@ def ask_ai(message):
     if response.status_code == 200:
         return response.json()["choices"][0]["message"]["content"]
 
-    return "حدث خطأ أثناء الاتصال بالذكاء الاصطناعي."
+    return f"OpenRouter Error: {response.status_code} - {response.text}"
